@@ -12,7 +12,15 @@ const MainTable = () => {
   const [showViewDetail, setShowViewDetails] = useState(-1);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [wid, setWid] = useState(500);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  
+    const filteredData = tableData.filter(item => 
+        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.version.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  
+
 
   return (
     <div>
@@ -21,7 +29,7 @@ const MainTable = () => {
     
     {/* Left Section */}
     <div className="w-full md:w-[45%] flex items-center">
-      <span className="font-semibold text-lg">2250 Items</span>
+      <span className="font-semibold text-lg">{filteredData.length} Items</span>
     </div>
 
     {/* Right Section */}
@@ -32,8 +40,9 @@ const MainTable = () => {
         <input
           type="text"
           placeholder="Search by Name, Version"
-          className="px-3 h-full w-[90%] outline-none border-r border-r-slate-400 text-sm"
+          className="px-3 h-full w-[90%] outline-none border-r border-r-slate-400 text-sm" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
         />
+
         <div className="bg-gray-200 w-[10%] flex justify-center items-center text-lg rounded-r-sm text-gray-500">
           <IoMdSearch />
         </div>
@@ -49,7 +58,7 @@ const MainTable = () => {
       </div>
 
       {/* Reset */}
-      <div className="w-full sm:w-[8%] h-8 text-xl font-semibold flex text-slate-600 items-center justify-center sm:justify-start">
+      <div onClick={() => setSearchQuery("")} className="w-full sm:w-[8%] h-8 text-xl font-semibold flex text-slate-600 items-center justify-center sm:justify-start cursor-pointer">
         <GrPowerReset />
       </div>
     </div>
@@ -87,7 +96,7 @@ const MainTable = () => {
             </thead>
 
             <tbody>
-              {tableData.map((item, idx) => (
+              {filteredData.map((item, idx) => (
                 <React.Fragment key={idx}>
                   <tr className="text-center text-gray-600">
                     <td className="px-4 py-4 text-start text-blue-500">
