@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [tailwindcss()],
+  plugins: [react(), tailwindcss()],
+  base: '/', // ye bahut zaruri hai for Vercel
   server: {
-    host: true,     // 👈 this exposes Vite on the network
-    port: 5173      // optional, ensures fixed port
+    host: true,
+    port: 5173
   }
 })
