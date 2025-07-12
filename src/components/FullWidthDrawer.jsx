@@ -22,8 +22,8 @@ const renderFinding = (text, isPositive, extraClass = "") => (
 const renderRiskGraph = (position) => {
   const [row, col] = position?.split("-").map(Number);
   return (
-    <div className="relative w-full max-w-sm bg-gray-50 border p-4 mt-2">
-      <div className="grid grid-cols-2 grid-rows-2 gap-0 border">
+    <div className="relative w-full max-w-sm bg-gray-50 p-4 mt-2">
+      <div className="grid grid-cols-2 grid-rows-2 gap-0">
         <div className="h-20 flex items-center justify-center bg-yellow-200 border border-gray-300 text-sm text-gray-600">
           Attested
         </div>

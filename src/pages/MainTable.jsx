@@ -6,7 +6,7 @@ import { GrPowerReset } from "react-icons/gr";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import DefaultDrawer from "../components/DetailDrawer";
 import FullWidthDrawer from "../components/FullWidthDrawer";
-import tableData from "../data";
+import tableData from "../constants/goldComparisonData";
 
 const MainTable = () => {
   const [showViewDetail, setShowViewDetails] = useState(-1);
