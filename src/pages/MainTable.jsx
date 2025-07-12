@@ -16,43 +16,46 @@ const MainTable = () => {
 
   return (
     <div>
-      <header>
-        <div className="w-full h-14 flex">
-          <div className="w-[45%] flex items-center px-10">
-            <span className="font-semibold text-lg">2250 Items</span>
-          </div>
+      <header className="w-full px-4 py-2">
+  <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-0">
+    
+    {/* Left Section */}
+    <div className="w-full md:w-[45%] flex items-center">
+      <span className="font-semibold text-lg">2250 Items</span>
+    </div>
 
-          <div className=" w-[55%] flex gap-5 items-center">
-            <div className="w-[72%] border border-slate-400 h-9 rounded-sm flex overflow-hidden">
-              <input
-                type="text"
-                placeholder="Search by Name, Version"
-                className="px-3 h-full w-[90%] outline-none border-r border-r-slate-400"
-              />
-              <div className="bg-gray-200 w-[10%] flex justify-center items-center text-lg rounded-r-sm text-gray-500">
-                <IoMdSearch />
-              </div>
-            </div>
-
-            <div className="w-[20%] border border-slate-400 rounded-sm flex gap-5 items-center h-9 px-3">
-              <div className="flex gap-3 items-center">
-                <span>
-                  <LuColumns3 />
-                </span>
-                <span>Columns</span>
-              </div>
-              <div>
-                {" "}
-                <TiArrowSortedDown />
-              </div>
-            </div>
-
-            <div className="w-[8%] h-8 text-xl font-semibold flex text-slate-600 items-center">
-              <GrPowerReset />
-            </div>
-          </div>
+    {/* Right Section */}
+    <div className="w-full md:w-[55%] flex flex-col sm:flex-row gap-3 sm:gap-5 items-start sm:items-center">
+      
+      {/* Search */}
+      <div className="w-full sm:w-[72%] border border-slate-400 h-9 rounded-sm flex overflow-hidden">
+        <input
+          type="text"
+          placeholder="Search by Name, Version"
+          className="px-3 h-full w-[90%] outline-none border-r border-r-slate-400 text-sm"
+        />
+        <div className="bg-gray-200 w-[10%] flex justify-center items-center text-lg rounded-r-sm text-gray-500">
+          <IoMdSearch />
         </div>
-      </header>
+      </div>
+
+      {/* Columns */}
+      <div className="w-full sm:w-[20%] border border-slate-400 rounded-sm flex justify-between items-center h-9 px-3">
+        <div className="flex gap-2 items-center text-sm">
+          <LuColumns3 />
+          <span>Columns</span>
+        </div>
+        <TiArrowSortedDown />
+      </div>
+
+      {/* Reset */}
+      <div className="w-full sm:w-[8%] h-8 text-xl font-semibold flex text-slate-600 items-center justify-center sm:justify-start">
+        <GrPowerReset />
+      </div>
+    </div>
+  </div>
+</header>
+
 
       <div className="px-4">
         <div className="overflow-auto">
